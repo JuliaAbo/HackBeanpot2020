@@ -1,7 +1,9 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Controller implements IHangmanController {
+public class Controller implements IHangmanController, Features {
   private Readable input;
   private Appendable output;
 
@@ -21,6 +23,7 @@ public class Controller implements IHangmanController {
 
     this.model = m;
     this.view = v;
+    this.view.addFeatures(this);
   }
 
   @Override
@@ -58,7 +61,7 @@ public class Controller implements IHangmanController {
       }
     }
 
-    if (this.quit == true) {
+    if (this.quit) {
       System.out.println("Thanks for playing.");
     }
     else if (this.model.isGameOver() && this.model.getLives() > 0) {
@@ -69,4 +72,10 @@ public class Controller implements IHangmanController {
       System.out.println("The answer was:" + this.model.getWord());
     }
   }
+
+  @Override
+  public void makeGuess(String c) {
+    this.model.guess(c.charAt(0));
+  }
 }
+

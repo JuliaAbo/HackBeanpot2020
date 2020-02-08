@@ -19,7 +19,8 @@ public class Model implements IHangmanModel {
     Random rand = new Random();
     try {
       int index = rand.nextInt(182);
-      BufferedReader br = new BufferedReader(new FileReader("/Users/jules/IdeaProjects/HackBeanpot2020/hackbeanpot2020/src/Words.csv"));
+      BufferedReader br = new BufferedReader(new FileReader("/Users/haalich/Developer/CS3500" +
+              "/HackBeanpot2020v2/hackbeanpot2020/src/Words.csv"));
       for(int i = 0; i < index - 1 ; i++) {
         br.readLine();
       }

@@ -112,4 +112,9 @@ public class TextualView implements IHangmanView {
     this.output.append("Guesses: \n");
     this.output.append(this.model.getGuessed().toString() + "\n");
   }
+
+  @Override
+  public void addFeatures(Features f) {
+    // dummy
+  }
 }
