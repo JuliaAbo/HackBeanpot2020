@@ -11,4 +11,6 @@ public interface IHangmanModel {
   boolean isGameOver();
 
   ArrayList<Character> getGuessed();
+
+  String getWord();
 }

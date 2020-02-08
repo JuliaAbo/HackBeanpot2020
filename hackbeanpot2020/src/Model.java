@@ -1,11 +1,13 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class Model implements IHangmanModel {
-  private final static ArrayList<String> words = new ArrayList<String>(Arrays.asList("HORSE", "ROAR",
-          "GARGANTUAN", "HACKBEANPOT", "SUNSHINE"));
   private String word;
   private int lives;
   private ArrayList<Character> guessed;
@@ -14,11 +16,20 @@ public class Model implements IHangmanModel {
 
   public Model(int lives) {
     this.lives = lives;
-
     Random rand = new Random();
-    int index = rand.nextInt(this.words.size());
+    try {
+      int index = rand.nextInt(182);
+      BufferedReader br = new BufferedReader(new FileReader("/Users/jules/IdeaProjects/HackBeanpot2020/hackbeanpot2020/src/Words.csv"));
+      for(int i = 0; i < index - 1 ; i++) {
+        br.readLine();
+      }
+      this.word = br.readLine();
+    } catch (FileNotFoundException e) {
+      throw new IllegalArgumentException();
+    } catch (IOException e) {
+      throw new IllegalArgumentException();
+    }
 
-    this.word = words.get(index);
 
     this.guessed = new ArrayList<>();
 
@@ -30,7 +41,7 @@ public class Model implements IHangmanModel {
 
   @Override
   public void guess(char d) {
-    char c = Character.toUpperCase(d);
+    char c = Character.toLowerCase(d);
     this.guessed.add(c);
 
     if (this.word.indexOf(c) > -1) {
@@ -68,5 +79,11 @@ public class Model implements IHangmanModel {
     ArrayList<Character> duplicate = new ArrayList<Character>();
     duplicate.addAll(this.guessed);
     return duplicate;
+  }
+
+  @Override
+  public String getWord() {
+    String dup = new String(this.word);
+    return dup;
   }
 }

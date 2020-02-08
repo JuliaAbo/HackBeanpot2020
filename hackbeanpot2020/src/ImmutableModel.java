@@ -30,4 +30,9 @@ public class ImmutableModel implements IHangmanModel {
   public ArrayList<Character> getGuessed() {
     return this.model.getGuessed();
   }
+
+  @Override
+  public String getWord() {
+    return this.model.getWord();
+  }
 }

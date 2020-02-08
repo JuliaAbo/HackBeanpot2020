@@ -66,6 +66,7 @@ public class Controller implements IHangmanController {
     }
     else if (this.model.getLives() <= 0) {
       System.out.println("You lost. Better luck next time.");
+      System.out.println("The answer was:" + this.model.getWord());
     }
   }
 }
