@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class Model implements IHangmanModel {
-  private final static ArrayList<String> words = new ArrayList<>(List.of("Horse", "Roar",
-          "Gargantuan", "HackBeanPot", "Sunshine"));
+  private final static ArrayList<String> words = new ArrayList<String>(Arrays.asList("HORSE", "ROAR",
+          "GARGANTUAN", "HACKBEANPOT", "SUNSHINE"));
   private String word;
   private int lives;
   private ArrayList<Character> guessed;
@@ -28,7 +29,8 @@ public class Model implements IHangmanModel {
   }
 
   @Override
-  public void guess(char c) {
+  public void guess(char d) {
+    char c = Character.toUpperCase(d);
     this.guessed.add(c);
 
     if (this.word.indexOf(c) > -1) {
@@ -59,5 +61,12 @@ public class Model implements IHangmanModel {
   public boolean isGameOver() {
     String convertedState = new String(this.state);
     return (convertedState.equals(this.word) || this.lives <= 0);
+  }
+
+  @Override
+  public ArrayList<Character> getGuessed() {
+    ArrayList<Character> duplicate = new ArrayList<Character>();
+    duplicate.addAll(this.guessed);
+    return duplicate;
   }
 }

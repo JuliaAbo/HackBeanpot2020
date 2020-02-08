@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public interface IHangmanModel {
 
   void guess(char c);
@@ -7,4 +9,6 @@ public interface IHangmanModel {
   char[] getCurrentState();
 
   boolean isGameOver();
+
+  ArrayList<Character> getGuessed();
 }

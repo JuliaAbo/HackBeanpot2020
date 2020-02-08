@@ -29,6 +29,11 @@ public class Controller implements IHangmanController {
 
     System.out.println("Welcome to Hangman. Guess a letter. If you'd like to quit the game, " +
             "enter *");
+    try {
+      this.view.render();
+    } catch (IOException e) {
+      System.out.print("The game could not load");
+    }
 
     while(!this.model.isGameOver() && scan.hasNext() && !this.quit) {
 

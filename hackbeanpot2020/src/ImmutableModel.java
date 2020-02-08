@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ImmutableModel implements IHangmanModel {
   private Model model;
 
@@ -22,5 +24,10 @@ public class ImmutableModel implements IHangmanModel {
   @Override
   public boolean isGameOver() {
     return this.model.isGameOver();
+  }
+
+  @Override
+  public ArrayList<Character> getGuessed() {
+    return this.model.getGuessed();
   }
 }
