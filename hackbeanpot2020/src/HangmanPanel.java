@@ -22,7 +22,7 @@ public class HangmanPanel extends JPanel {
     g.fillRect(425, 100, 75, 3);
     g.fillRect(450, 400, 100, 3);
 
-    g.drawString("Lives: " + Integer.toString(this.model.getLives()));
+    g.drawString("Lives: " + Integer.toString(this.model.getLives()), 200, 200);
 
     Font myFont = new Font("Dialog", Font.PLAIN, 30 );
     this.setFont(myFont);
@@ -31,8 +31,4 @@ public class HangmanPanel extends JPanel {
       g.drawString(Character.toString(this.model.getCurrentState()[i]), 100 + i * 28, 400);
     }
   }
-
-
-
-
 }
