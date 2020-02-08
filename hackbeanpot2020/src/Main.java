@@ -8,7 +8,6 @@ public class Main {
     Scanner scan = new Scanner(in);
     Model m = new Model(0);
     System.out.println("Would you like EASY or HARD?");
-    /*
     if(scan.hasNext()) {
       String version = scan.next().toUpperCase();
       if(version.equals("EASY")) {
@@ -18,8 +17,7 @@ public class Main {
         m = new Model(3);
       }
     }
-*/
-    m = new Model(6);
+    //m = new Model(6);
     ImmutableModel im = new ImmutableModel(m);
 
     //IHangmanView v = new TextualView(im, out);

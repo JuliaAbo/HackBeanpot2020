@@ -30,27 +30,6 @@ public class VisualView extends JFrame implements IHangmanView {
     this.pack();
     this.setVisible(true);
 
-    /*
-    // display
-    Button enter = new Button();
-    JTextField userinput = new JTextField();
-    userinput.setPreferredSize(new Dimension(70, 30));
-    JPanel userInter = new JPanel();
-    //userInter.setLayout(new BorderLayout());
-
-   // userInter.add(userinput);
-    userInter.add(enter, BorderLayout.EAST);
-    HangmanPanel panel = new HangmanPanel(this.model);
-
-    this.add(panel, BorderLayout.CENTER);
-    //this.add(userInter, BorderLayout.SOUTH);
-    //this.add(userinput, BorderLayout.SOUTH);
-    //this.add(enter, BorderLayout.SOUTH);
-    this.pack();
-    this.setVisible(true);
-    this.add(new Button(), BorderLayout.CENTER);
-
-    */
   }
 
   @Override
